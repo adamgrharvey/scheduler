@@ -7,7 +7,6 @@ export default function InterviewerListItem(props) {
   if (props.selected) {
     name = props.name;
   }
-  console.log(props.selected);
   let interviewerClass = classNames("interviewers__item", 
   {
     "interviewers__item--selected": props.selected
