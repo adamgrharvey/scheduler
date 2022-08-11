@@ -52,16 +52,16 @@ export default function Application(props) {
     // you may put the line below, but will have to remove/comment hardcoded appointments variable
    // appointments: {}
   });
+  const setDay = day => setState({ ...state, day });
+  const setDays = days => setState(prev => ({ ...prev, days }));
 
   useEffect(() => {
     axios.get("http://localhost:8001/api/days")
       .then(response => {
-        console.log(response);
         setDays([...response.data]);
       })
   }, [])
 
-  const [day, setDay] = useState("Monday");
   return (
     <main className="layout">
       <section className="sidebar">
