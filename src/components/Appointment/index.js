@@ -27,7 +27,7 @@ export default function Appointment(props) {
 
       )}
       {mode === CREATE && <Form
-        interviewers={Object.entries(props.interviewers).map(e => e[1])}
+        interviewers={props.interviewers}
         onCancel={back}
         onSave={console.log("onSave")}
       />}
