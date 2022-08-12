@@ -1,6 +1,4 @@
-import React from "react";
-
-export function getAppointmentsForDay(state, day) {
+export default function getAppointmentsForDay(state, day) {
   let out = [];
   for (let i = 0; i < state.days.length; i++) {
     if (state.days[i].name === day) {
