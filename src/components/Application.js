@@ -1,33 +1,22 @@
-import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import React from "react";
 import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from "components/Appointment";
 import { getAppointmentsForDay, getInterviewersForDay, getInterview } from "../helpers/selectors";
+import { useApplicationData } from "hooks/useApplicationData";
 
 
 
 export default function Application(props) {
 
-  const [state, setState] = useState({
-    day: "Monday",
-    days: [],
-    appointments: {},
-    interviewers: {}
-  });
-  const setDay = day => setState({ ...state, day });
+  const {
+    state,
+    setDay,
+    bookInterview,
+    cancelInterview
+  } = useApplicationData();
 
-  useEffect(() => {
-    Promise.all([
-      axios.get('http://localhost:8001/api/days'),
-      axios.get('http://localhost:8001/api/appointments'),
-      axios.get('http://localhost:8001/api/interviewers')
-    ]).then((all) => {
-      setState(prev => ({ ...prev, days:all[0].data, appointments:all[1].data, interviewers:all[2].data }));
-    })
-  }, [])
-
-const appointments = getAppointmentsForDay(state, state.day);
+  const appointments = getAppointmentsForDay(state, state.day);
 
   return (
     <main className="layout">
@@ -51,7 +40,6 @@ const appointments = getAppointmentsForDay(state, state.day);
         {Object.values(appointments).map(appointment => {
           const interview = getInterview(state, appointment.interview);
           const interviewers = getInterviewersForDay(state, state.day);
-          console.log('interviewers', interviewers);
           return (
             <Appointment
               key={appointment.id}
@@ -59,8 +47,10 @@ const appointments = getAppointmentsForDay(state, state.day);
               time={appointment.time}
               interview={interview}
               interviewers={interviewers}
+              bookInterview={bookInterview}
+              cancelInterview={cancelInterview}
             />
-            
+
           )
         })}
       </section>
