@@ -21,6 +21,7 @@ There are appropriate error messages when a server request fails, and the app co
 !['create'](https://github.com/adamgrharvey/scheduler/blob/master/IMAGES/create.png?raw=true)
 !['cantbeblank'](https://github.com/adamgrharvey/scheduler/blob/master/IMAGES/cantbeblank.png?raw=true)
 !['error'](https://github.com/adamgrharvey/scheduler/blob/master/IMAGES/error.png?raw=true)
+!['screensize'](https://github.com/adamgrharvey/scheduler/blob/master/IMAGES/screensize.png?raw=true)
 
 ## Setup
 
