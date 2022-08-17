@@ -2,6 +2,7 @@ import React from "react";
 import "components/Application.scss";
 import DayList from "./DayList";
 import Appointment from "components/Appointment";
+import Header from "components/Appointment/Header";
 import { getAppointmentsForDay, getInterviewersForDay, getInterview } from "../helpers/selectors";
 import { useApplicationData } from "hooks/useApplicationData";
 
@@ -9,6 +10,8 @@ import { useApplicationData } from "hooks/useApplicationData";
 
 export default function Application(props) {
 
+
+  // get the data needed for our app from our helper function.
   const {
     state,
     setDay,
@@ -50,9 +53,9 @@ export default function Application(props) {
               bookInterview={bookInterview}
               cancelInterview={cancelInterview}
             />
-
           )
         })}
+        <Header time={"5pm"} />
       </section>
     </main>
   );
