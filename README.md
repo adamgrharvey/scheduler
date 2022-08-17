@@ -11,7 +11,7 @@ The Scheduler client application created initialized using Create React App. Exp
 
 Both servers run concurrently; requests are proxied from the Webpack development server to the API server.
 
-It allows the creation of appointments on a schedule. Creation, editing (both student names and interviewer), and deletion are all supported.
+It allows the creation of appointments on a schedule. Creation, editing (both student names and interviewer), and deletion are all supported. Any of these actions pushes data to the DB, and upon OK response from server updates state with the new data.
 
 There are appropriate error messages when a server request fails, and the app correctly redirects the user in such an event.
 
