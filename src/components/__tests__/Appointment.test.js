@@ -19,6 +19,8 @@ describe("Appointment", () => {
     const { getByRole } = render(<Appointment />);
   
     return waitForElement(() => getByRole('img'));
+
+    
   });
   
 });

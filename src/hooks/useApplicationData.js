@@ -32,7 +32,7 @@ const useApplicationData = function () {
   }
   const updateSpots = function (dayID, tempstate) {
     let newDays = tempstate.days;
-    let newSpotCount = 5;
+    let newSpotCount = tempstate.days[dayID].appointments.length;
     let apptKeys = Object.values(tempstate.days[dayID].appointments);
 
     for (const i of apptKeys) {
